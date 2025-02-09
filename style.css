@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -5,6 +10,87 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
+
+/* Nav bar */
+nav {
+    height: 60px;
+    background-color: rgb(92, 217, 255);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 20px;  
+}
+.links-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: rgb(0, 53, 89);
+}
+
+nav i {
+    fill: white;
+}
+
+#sidebar-active {
+    display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button {
+    padding: 0 20px;
+    display: none;
+}
+
+@media(max-width: 450px) {
+    .links-container {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 250px;
+        background-color: rgba(50, 50, 50, 0.8);
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        transition: 0.75s ease-out;
+    }
+    nav a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+    .open-sidebar-button, .close-sidebar-button {
+        display: block;
+    }
+    #sidebar-active:checked ~ .links-container {
+        right: 0;
+    }
+    #sidebar-active:checked ~ #overlay {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
 
 header {
     background-color: rgba(92, 217, 255);
@@ -22,10 +108,13 @@ h1 {
     margin-top: 10px;
 }
 
-.description {
+.description{
+    font-family: Arial, Helvetica, sans-serif;
     max-width: 600px;
     margin: 20px auto;
     font-size: 18px;
+    text-align: center;
+    padding: 10px;
 }
 
 /*Products*/
@@ -55,6 +144,7 @@ h1 {
 }
 
 .product-info {
+    font-family: Arial, Helvetica, sans-serif;
     text-align: left;
 }
 
@@ -64,6 +154,7 @@ h1 {
 }
 
 .product-info p {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
@@ -77,7 +168,7 @@ h1 {
 .team h2 {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;  
+    margin-bottom: 5px;  
 }
 
 .team img {
@@ -88,12 +179,14 @@ h1 {
 }
 
 .team p {
-    font-size: 16px;
-    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
     max-width: 600px;
     margin: 0 auto;
     padding: 0 10px;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 /*Market Section*/
@@ -104,14 +197,12 @@ h1 {
     border-radius: 10px;
     border-color: rgb(0,0,0);
 }
-
 .markets .images {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
-
 .markets .images div {
     background-color: rgba(255, 255, 255); 
     border: 2px solid rgb(92, 216, 255); 
@@ -120,11 +211,177 @@ h1 {
     width: 250px;  
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
-
 .markets .images img {
     width: 100%;
     border-radius: 5px;
     margin-top: 10px;
+}
+
+/* Timeline*/
+.timeline {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto;
+    /*background-color: rgba(92, 217, 255, 0.3);*/
+    padding: 20px 0;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: grey;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+.blocks {
+    margin-top: 50px;
+}
+.block {
+    width: calc(50% - 40px);
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: relative;
+    margin-bottom: 50px;
+}
+.block:nth-child(odd) {
+    float: left;
+    clear: both;
+    transform: translateX(-10px);
+}
+.block:nth-child(even) {
+    float: right;
+    clear: both;
+    transform: translateX(10px);
+}
+.block::before { /*Timeline Circle*/
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(52, 152, 219);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 4px white;
+}
+.block:nth-child(odd)::before {
+    right: -30px;
+}
+.block:nth-child(even)::before {
+    left: -30px;
+}
+header h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+header p { /* Timeline date */
+    position: absolute;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    background: rgb(255, 255, 255,);
+    color: rgb(0, 53, 89);
+}
+/* Date position */
+.block:nth-child(odd) header p {
+    right: -165px;
+    top: 10px;
+}
+
+.block:nth-child(even) header p {
+    left: -165px;
+    top: 10px;
+}
+/* Clear floats */
+.blocks::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Image Container - Positioned Next to the Timeline */
+.image-container {
+    display: flex; /* Use flexbox to arrange images side by side */
+    gap: 10px; /* Space between images */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-30%);
+    width: auto;
+}
+/* Odd Blocks - Images on Left */
+.block:nth-child(odd) .image-container {
+    left: calc(100% + 40px); /* Image container positioned to the right of the timeline */
+}
+/* Even Blocks - Images on Right */
+.block:nth-child(even) .image-container {
+    right: calc(100% + 40px); /* Image container positioned to the left of the timeline */
+}
+/* Image Styling */
+.image-container img {
+    width: auto; /* Control the width of each image */
+    height: auto;
+    max-height: 180px; /* Ensures images don't stretch vertically */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Responsive Timeline*/
+@media(max-width: 630px){
+.timeline::before{
+    left: 20px;
+    transform: translateX(0);
+}
+.blocks::before{
+    left: 20px;
+    transform: translateX(0);
+}
+.blocks{
+    padding-left: 20px;
+    margin-right: 20px;
+}
+.block{
+    width: 90%;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.block::before, .block:nth-child(even){
+    left: -13px;
+}
+
+.block:nth-child(even){
+    left: 17px;
+}
+header p{
+    position: static;
+    border: none;
+    margin-bottom: 10px;
+}
+.image-container {
+    position: relative; /* Adjusted for mobile */
+    top: auto;
+    transform: translateY(0);
+    width: 100%; /* Let it fill up the available space */
+    justify-content: space-evenly; /* Distribute images evenly */
+}
+.image-container img {
+    max-width: 100%;
+    max-height: 120px;
+}
+.block:nth-child(odd) .image-container {
+    left: 0; /* Adjusted for mobile */
+}
+.block:nth-child(even) .image-container {
+    right: 0; /* Adjusted for mobile */
+}
 }
 
 /*Footer*/
