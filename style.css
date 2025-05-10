@@ -117,25 +117,6 @@ h1 {
     padding: 10px;
 }
 
-/*See More Button*/
-.see-more-button {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 5px 10px; /* Reduced padding */
-    font-size: 0.9em;   /* Slightly smaller text */
-    background-color: rgb(52, 152, 219);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px; /* Slightly smaller border radius */
-    transition: background-color 0.3s ease;
-}
-
-.see-more-button:hover {
-    background-color: rgb(40, 120, 180);
-}
-
-
-
 /*Products*/
 .products {
     text-align: center;
@@ -150,11 +131,10 @@ h1 {
     border: 2px solid #4CAF50;
     border-radius: 10px;
     padding: 15px;
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
-
 .product-card img {
     width: 150px;
     height: auto;
@@ -162,20 +142,31 @@ h1 {
     margin-right: 15px;
     
 }
-
 .product-info {
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
 }
-
 .product-info h3 {
     margin: 0;
-    color: #4CAF50;
+    color: rgb(76, 175, 80);
 }
-
 .product-info p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+}
+.product-card a{
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(92, 217, 255);
+    margin-top: 10px;
+}
+.product-card a:hover{
+    background-color: rgb(0, 53, 89);
 }
 
 /*Team section*/
@@ -236,6 +227,42 @@ h1 {
     border-radius: 5px;
     margin-top: 10px;
 }
+.markets .market-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.markets .market-message div {
+  background-color: rgba(255, 255, 255);
+  border: 2px solid rgb(76, 175, 80);
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.markets .market-message div a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: 15px;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(92, 217, 255);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+.markets .market-message div a:hover {
+    background-color: rgb(0, 53, 89);
+}
+
 
 /*Total crips packet recycled type effect*/
 .counter-container {
